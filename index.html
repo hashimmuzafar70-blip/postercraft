@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PosterCraft — Custom Posters</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #08111f;
+  color: white;
+  line-height: 1.6;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(8,17,31,0.95);
+  padding: 18px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #00d4ff;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.hero {
+  padding: 90px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 60px;
+  line-height: 1.05;
+}
+
+.gradient {
+  background: linear-gradient(90deg, #7c5cff, #00d4ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: #aab7ca;
+  max-width: 650px;
+  margin: 25px auto;
+  font-size: 18px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.primary {
+  background: linear-gradient(135deg, #7c5cff, #00d4ff);
+  color: white;
+}
+
+section {
+  padding: 70px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 38px;
+}
+
+.section-title p {
+  color: #aab7ca;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: #101c30;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 20px;
+}
+
+.card .icon {
+  font-size: 35px;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.card p {
+  color: #aab7ca;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #00d4ff;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.sample {
+  height: 230px;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: end;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.s1 {
+  background: linear-gradient(135deg,#ff4d8d,#ffbd55);
+}
+
+.s2 {
+  background: linear-gradient(135deg,#273cff,#00d4ff);
+}
+
+.s3 {
+  background: linear-gradient(135deg,#171c35,#a55cff);
+}
+
+.s4 {
+  background: linear-gradient(135deg,#00a878,#a8ef67);
+}
+
+.order {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 25px;
+}
+
+.info,
+.form {
+  background: #101c30;
+  padding: 30px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.info li {
+  list-style: none;
+  margin: 15px 0;
+}
+
+label {
+  display: block;
+  margin: 15px 0 7px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: 1px solid #26344c;
+  background: #08111f;
+  color: white;
+  font-size: 15px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #aab7ca;
+}
+
+@media(max-width:800px) {
+  .grid,
+  .gallery,
+  .order {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+}
+
+@media(max-width:550px) {
+  .grid,
+  .gallery,
+  .order,
+  .two {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  nav {
+    padding: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Poster<span>Craft</span> ✦</div>
+
+  <div>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#order">Order</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+
+    <h1>
+      Turn your idea into a
+      <span class="gradient">poster.</span>
+    </h1>
+
+    <p>
+      Custom posters for birthdays, sports, events,
+      school projects, Instagram and much more.
+    </p>
+
+    <a href="#order" class="btn primary">
+      Create My Poster →
+    </a>
+
+  </div>
+</section>
+
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+<h2>What can I design?</h2>
+<p>Tell me your idea and I'll turn it into a design.</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="icon">🎂</div>
+<h3>Birthday Posters</h3>
+<p>Personalized birthday designs.</p>
+<div class="price">₹99</div>
+</div>
+
+<div class="card">
+<div class="icon">🏆</div>
+<h3>Sports Posters</h3>
+<p>Powerful posters for teams and players.</p>
+<div class="price">₹99</div>
+</div>
+
+<div class="card">
+<div class="icon">📱</div>
+<h3>Social Media</h3>
+<p>Instagram posts and promotional graphics.</p>
+<div class="price">₹99</div>
+</div>
+
+<div class="card">
+<div class="icon">🎉</div>
+<h3>Event Posters</h3>
+<p>Eye-catching event designs.</p>
+<div class="price">₹99</div>
+</div>
+
+<div class="card">
+<div class="icon">🏫</div>
+<h3>School Projects</h3>
+<p>Attractive school project designs.</p>
+<div class="price">₹99</div>
+</div>
+
+<div class="card">
+<div class="icon">✨</div>
+<h3>Custom Design</h3>
+<p>Have another idea? Tell me about it.</p>
+<div class="price">₹99</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="gallery">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Sample Styles</h2>
+<p>Some example designs.</p>
+</div>
+
+<div class="gallery">
+
+<div class="sample s1">
+BIRTHDAY<br>VIBES ✦
+</div>
+
+<div class="sample s2">
+GAME<br>DAY 🏆
+</div>
+
+<div class="sample s3">
+NIGHT<br>EVENT
+</div>
+
+<div class="sample s4">
+FRESH<br>IDEAS
+</div>
+
+</div>
+</div>
+</section>
+
+
+<section id="order">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Order Your Poster</h2>
+<p>Fill the form and send your order directly to WhatsApp.</p>
+</div>
+
+<div class="order">
+
+<div class="info">
+
+<h2>How it works</h2>
+
+<ul>
+<li>✅ Tell me what you need</li>
+<li>✅ Choose your poster type</li>
+<li>✅ Tell me your deadline</li>
+<li>✅ Send the order</li>
+<li>✅ Discuss the design on WhatsApp</li>
+</ul>
+
+<h2 style="margin-top:25px;color:#00d4ff;">
+Starting at ₹99
+</h2>
+
+</div>
+
+
+<form class="form" id="orderForm">
+
+<label>Your Name</label>
+
+<input
+id="name"
+type="text"
+placeholder="Enter your name"
+required
+>
+
+
+<label>Poster Type</label>
+
+<select id="type">
+
+<option>Birthday</option>
+<option>Sports</option>
+<option>Instagram / Social Media</option>
+<option>Event</option>
+<option>School Project</option>
+<option>Other</option>
+
+</select>
+
+
+<label>What should the poster say?</label>
+
+<textarea
+id="requirements"
+placeholder="Example: Happy Birthday Arman! Add a football theme..."
+required
+></textarea>
+
+
+<div class="two">
+
+<div>
+
+<label>Deadline</label>
+
+<select id="deadline">
+
+<option>As soon as possible</option>
+<option>Today</option>
+<option>Tomorrow</option>
+<option>This week</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label>Style</label>
+
+<select id="style">
+
+<option>Modern</option>
+<option>Colorful</option>
+<option>Minimal</option>
+<option>Sports / Energetic</option>
+<option>Surprise me</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<label>Reference Image (optional)</label>
+
+<input
+id="image"
+type="file"
+accept="image/*"
+>
+
+
+<button
+class="btn primary"
+style="width:100%;margin-top:20px;"
+type="submit"
+>
+💬 Send Order on WhatsApp
+</button>
+
+</form>
+
+</div>
+</div>
+</section>
+
+
+<footer>
+
+© 2026 PosterCraft • Custom posters made your way.
+
+</footer>
+
+
+<script>
+
+const whatsappNumber = "919622403836";
+
+document
+.getElementById("orderForm")
+.addEventListener("submit", function(event) {
+
+event.preventDefault();
+
+const name =
+document.getElementById("name").value;
+
+const type =
+document.getElementById("type").value;
+
+const requirements =
+document.getElementById("requirements").value;
+
+const deadline =
+document.getElementById("deadline").value;
+
+const style =
+document.getElementById("style").value;
+
+const image =
+document.getElementById("image").files[0];
+
+let message =
+
+`Hi! I want to order a custom poster.
+
+Name: ${name}
+
+Poster Type: ${type}
+
+Poster Requirements:
+${requirements}
+
+Deadline: ${deadline}
+
+Preferred Style: ${style}
+
+Price: ₹99
+
+${image ? "I have a reference image and will send it here." : "No reference image."}
+
+Please tell me the final details.`;
+
+const url =
+"https://wa.me/" +
+whatsappNumber +
+"?text=" +
+encodeURIComponent(message);
+
+window.open(url, "_blank");
+
+});
+
+</script>
+
+</body>
+</html>
